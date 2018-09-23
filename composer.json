@@ -1,0 +1,39 @@
+{
+    "name": "innmind/time-warp",
+    "type": "library",
+    "description": "Time warp",
+    "keywords": ["time", "warp"],
+    "homepage": "http://github.com/Innmind/TimeWarp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Baptiste Langlade",
+            "email": "langlade.baptiste@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "http://github.com/Innmind/TimeWarp/issues"
+    },
+    "require": {
+        "php": "~7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Innmind\\TimeWarp\\": "src/"
+        },
+        "files": ["src/bootstrap.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Innmind\\TimeWarp\\": "tests/",
+            "Fixture\\Innmind\\TimeWarp\\": "fixtures/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "giorgiosironi/eris": "^0.10.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always"
+    }
+}
