@@ -21,8 +21,7 @@
     "autoload": {
         "psr-4": {
             "Innmind\\TimeWarp\\": "src/"
-        },
-        "files": ["src/bootstrap.php"]
+        }
     },
     "autoload-dev": {
         "psr-4": {
