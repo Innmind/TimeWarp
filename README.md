@@ -35,7 +35,7 @@ function yourApp(
 ): void {
     // do something
     $halt($clock, new Minute(42));
-    // dom some more
+    // do some more
 }
 
 yourApp(new Earth, new Usleep);
