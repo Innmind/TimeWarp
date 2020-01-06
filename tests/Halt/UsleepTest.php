@@ -30,6 +30,6 @@ class UsleepTest extends TestCase
             new Millisecond(500)
         ));
         $end = microtime(true);
-        $this->assertEqualsWithDelta(0.5, $end - $start, 0.015); // 15 milliseconds delta allowed
+        $this->assertEqualsWithDelta(0.5, $end - $start, 0.02); // 20 milliseconds delta allowed
     }
 }
