@@ -4,11 +4,11 @@ declare(strict_types = 1);
 namespace Innmind\TimeWarp;
 
 use Innmind\TimeWarp\Exception\LogicException;
-use Innmind\TimeContinuum\PeriodInterface;
+use Innmind\TimeContinuum\Period;
 
 final class PeriodToMilliseconds
 {
-    public function __invoke(PeriodInterface $period): int
+    public function __invoke(Period $period): int
     {
         if ($period->months() !== 0) {
             // a month is not constant
