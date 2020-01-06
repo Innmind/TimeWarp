@@ -7,9 +7,9 @@ use Innmind\TimeWarp\{
     PeriodToMilliseconds,
     Exception\LogicException,
 };
-use Innmind\TimeContinuum\{
-    Period\Earth\Composite,
-    Period\Earth\Month,
+use Innmind\TimeContinuum\Earth\Period\{
+    Composite,
+    Month,
 };
 use PHPUnit\Framework\TestCase;
 

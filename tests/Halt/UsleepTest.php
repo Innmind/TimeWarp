@@ -8,8 +8,8 @@ use Innmind\TimeWarp\{
     Halt,
 };
 use Innmind\TimeContinuum\{
-    TimeContinuumInterface,
-    Period\Earth\Millisecond,
+    Clock,
+    Earth\Period\Millisecond,
 };
 use PHPUnit\Framework\TestCase;
 
@@ -26,10 +26,10 @@ class UsleepTest extends TestCase
 
         $start = microtime(true);
         $this->assertNull($sleep(
-            $this->createMock(TimeContinuumInterface::class),
+            $this->createMock(Clock::class),
             new Millisecond(500)
         ));
         $end = microtime(true);
-        $this->assertEquals(0.5, $end - $start, '', 0.015); // 15 milliseconds delta allowed
+        $this->assertEqualsWithDelta(0.5, $end - $start, 0.09); // 90 milliseconds delta allowed
     }
 }
