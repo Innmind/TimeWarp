@@ -14,7 +14,7 @@ use Innmind\TimeContinuum\{
 
 final class Usleep implements Halt
 {
-    private $periodToMilliseconds;
+    private PeriodToMilliseconds $periodToMilliseconds;
 
     public function __construct()
     {
