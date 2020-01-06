@@ -1,10 +1,9 @@
 # TimeWarp
 
-| `master` | `develop` |
-|----------|-----------|
-| [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/?branch=master) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/?branch=develop) |
-| [![Code Coverage](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/?branch=master) | [![Code Coverage](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/?branch=develop) |
-| [![Build Status](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/build-status/master) | [![Build Status](https://scrutinizer-ci.com/g/Innmind/TimeWarp/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/TimeWarp/build-status/develop) |
+| `develop` |
+|-----------|
+| [![codecov](https://codecov.io/gh/Innmind/TimeWarp/branch/develop/graph/badge.svg)](https://codecov.io/gh/Innmind/TimeWarp) |
+| [![Build Status](https://github.com/Innmind/TimeWarp/workflows/CI/badge.svg)](https://github.com/Innmind/TimeWarp/actions?query=workflow%3ACI) |
 
 Small lib to abstract the way to halt the program.
 
