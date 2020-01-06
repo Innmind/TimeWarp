@@ -23,13 +23,13 @@ use Innmind\TimeWarp\{
     Halt,
 };
 use Innmind\TimeContinuum\{
-    TimeContinuumInterface,
-    TimeContinuum\Earth,
-    Period\Earth\Minute,
+    Clock,
+    Earth,
+    Earth\Period\Minute,
 };
 
 function yourApp(
-    TimeContinuumInterface $clock,
+    Clock $clock,
     Halt $halt
 ): void {
     // do something
@@ -37,7 +37,7 @@ function yourApp(
     // do some more
 }
 
-yourApp(new Earth, new Usleep);
+yourApp(new Earth\Clock, new Usleep);
 ```
 
 This example will halt your program for 42 minutes.
