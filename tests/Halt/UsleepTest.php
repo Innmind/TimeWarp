@@ -24,12 +24,12 @@ class UsleepTest extends TestCase
     {
         $sleep = new Usleep;
 
-        $start = microtime(true);
+        $start = \microtime(true);
         $this->assertNull($sleep(
             $this->createMock(Clock::class),
             new Millisecond(500)
         ));
-        $end = microtime(true);
+        $end = \microtime(true);
         $this->assertEqualsWithDelta(0.5, $end - $start, 0.09); // 90 milliseconds delta allowed
     }
 }
