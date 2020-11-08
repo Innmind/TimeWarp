@@ -41,3 +41,12 @@ yourApp(new Earth\Clock, new Usleep);
 ```
 
 This example will halt your program for 42 minutes.
+
+## Logging
+
+```php
+use Innmind\TimeWarp\Halt\Logger;
+use Psr\Log\LoggerInterface;
+
+$halt = new Logger($halt, /** an instance of LoggerInterface */);
+```
