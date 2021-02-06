@@ -1,9 +1,8 @@
 # TimeWarp
 
-| `develop` |
-|-----------|
-| [![codecov](https://codecov.io/gh/Innmind/TimeWarp/branch/develop/graph/badge.svg)](https://codecov.io/gh/Innmind/TimeWarp) |
-| [![Build Status](https://github.com/Innmind/TimeWarp/workflows/CI/badge.svg)](https://github.com/Innmind/TimeWarp/actions?query=workflow%3ACI) |
+[![Build Status](https://github.com/innmind/timewarp/workflows/CI/badge.svg?branch=master)](https://github.com/innmind/timewarp/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/innmind/timewarp/branch/develop/graph/badge.svg)](https://codecov.io/gh/innmind/timewarp)
+[![Type Coverage](https://shepherd.dev/github/innmind/timewarp/coverage.svg)](https://shepherd.dev/github/innmind/timewarp)
 
 Small lib to abstract the way to halt the program.
 
