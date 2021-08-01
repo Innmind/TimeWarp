@@ -20,8 +20,6 @@ final class Usleep implements Halt
 
     public function __invoke(Period $period): void
     {
-        \usleep(
-            ($this->periodToMilliseconds)($period) * 1000
-        );
+        \usleep(($this->periodToMilliseconds)($period) * 1000);
     }
 }
