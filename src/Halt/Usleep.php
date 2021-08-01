@@ -7,10 +7,7 @@ use Innmind\TimeWarp\{
     Halt,
     PeriodToMilliseconds,
 };
-use Innmind\TimeContinuum\{
-    Clock,
-    Period,
-};
+use Innmind\TimeContinuum\Period;
 
 final class Usleep implements Halt
 {
@@ -21,7 +18,7 @@ final class Usleep implements Halt
         $this->periodToMilliseconds = new PeriodToMilliseconds;
     }
 
-    public function __invoke(Clock $clock, Period $period): void
+    public function __invoke(Period $period): void
     {
         \usleep(
             ($this->periodToMilliseconds)($period) * 1000
