@@ -21,22 +21,16 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
     Halt,
 };
-use Innmind\TimeContinuum\{
-    Clock,
-    Earth,
-    Earth\Period\Minute,
-};
+use Innmind\TimeContinuum\Earth\Period\Minute;
 
-function yourApp(
-    Clock $clock,
-    Halt $halt
-): void {
+function yourApp(Halt $halt): void
+{
     // do something
-    $halt($clock, new Minute(42));
+    $halt(new Minute(42));
     // do some more
 }
 
-yourApp(new Earth\Clock, new Usleep);
+yourApp(new Usleep);
 ```
 
 This example will halt your program for 42 minutes.
@@ -47,5 +41,5 @@ This example will halt your program for 42 minutes.
 use Innmind\TimeWarp\Halt\Logger;
 use Psr\Log\LoggerInterface;
 
-$halt = new Logger($halt, /** an instance of LoggerInterface */);
+$halt = Logger::psr($halt, /** an instance of LoggerInterface */);
 ```
