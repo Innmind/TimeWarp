@@ -16,11 +16,9 @@
     },
     "require": {
         "php": "~8.0",
-        "innmind/time-continuum": "dev-next",
-        "psr/log": "^1.1"
+        "innmind/time-continuum": "~3.0",
+        "psr/log": "~3.0"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Innmind\\TimeWarp\\": "src/"
