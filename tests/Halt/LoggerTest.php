@@ -7,10 +7,7 @@ use Innmind\TimeWarp\{
     Halt\Logger,
     Halt,
 };
-use Innmind\TimeContinuum\{
-    Clock,
-    Period,
-};
+use Innmind\TimeContinuum\Period;
 use Psr\Log\LoggerInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +17,7 @@ class LoggerTest extends TestCase
     {
         $this->assertInstanceOf(
             Halt::class,
-            new Logger(
+            Logger::psr(
                 $this->createMock(Halt::class),
                 $this->createMock(LoggerInterface::class),
             ),
@@ -29,20 +26,19 @@ class LoggerTest extends TestCase
 
     public function testHalt()
     {
-        $clock = $this->createMock(Clock::class);
         $period = $this->createMock(Period::class);
-        $halt = new Logger(
+        $halt = Logger::psr(
             $inner = $this->createMock(Halt::class),
             $logger = $this->createMock(LoggerInterface::class),
         );
         $inner
             ->expects($this->once())
             ->method('__invoke')
-            ->with($clock, $period);
+            ->with($period);
         $logger
             ->expects($this->once())
             ->method('debug');
 
-        $this->assertNull($halt($clock, $period));
+        $this->assertNull($halt($period));
     }
 }

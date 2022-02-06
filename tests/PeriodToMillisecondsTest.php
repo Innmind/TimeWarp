@@ -26,7 +26,7 @@ class PeriodToMillisecondsTest extends TestCase
             1,
             1,
             1,
-            1
+            1,
         ));
 
         $this->assertSame(31626061001, $milliseconds);
