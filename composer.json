@@ -8,16 +8,16 @@
     "authors": [
         {
             "name": "Baptiste Langlade",
-            "email": "langlade.baptiste@gmail.com"
+            "email": "baptiste.langlade@hey.com"
         }
     ],
     "support": {
         "issues": "http://github.com/Innmind/TimeWarp/issues"
     },
     "require": {
-        "php": "~7.4|~8.0",
-        "innmind/time-continuum": "~2.0",
-        "psr/log": "^1.1"
+        "php": "~8.0",
+        "innmind/time-continuum": "~3.0",
+        "psr/log": "~3.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,6 +33,6 @@
     "require-dev": {
         "phpunit/phpunit": "~9.0",
         "vimeo/psalm": "~4.1",
-        "innmind/coding-standard": "^1.0"
+        "innmind/coding-standard": "~2.0"
     }
 }

@@ -4,10 +4,7 @@ declare(strict_types = 1);
 namespace Innmind\TimeWarp\Halt;
 
 use Innmind\TimeWarp\Halt;
-use Innmind\TimeContinuum\{
-    Clock,
-    Period,
-};
+use Innmind\TimeContinuum\Period;
 use Psr\Log\LoggerInterface;
 
 final class Logger implements Halt
@@ -15,13 +12,13 @@ final class Logger implements Halt
     private Halt $halt;
     private LoggerInterface $logger;
 
-    public function __construct(Halt $halt, LoggerInterface $logger)
+    private function __construct(Halt $halt, LoggerInterface $logger)
     {
         $this->halt = $halt;
         $this->logger = $logger;
     }
 
-    public function __invoke(Clock $clock, Period $period): void
+    public function __invoke(Period $period): void
     {
         $this->logger->debug('Halting current process...', ['period' => [
             'years' => $period->years(),
@@ -32,6 +29,11 @@ final class Logger implements Halt
             'seconds' => $period->seconds(),
             'milliseconds' => $period->milliseconds(),
         ]]);
-        ($this->halt)($clock, $period);
+        ($this->halt)($period);
+    }
+
+    public static function psr(Halt $halt, LoggerInterface $logger): self
+    {
+        return new self($halt, $logger);
     }
 }

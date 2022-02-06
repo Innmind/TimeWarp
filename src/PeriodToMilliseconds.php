@@ -8,6 +8,9 @@ use Innmind\TimeContinuum\Period;
 
 final class PeriodToMilliseconds
 {
+    /**
+     * @throws LogicException If any number of months is specified
+     */
     public function __invoke(Period $period): int
     {
         if ($period->months() !== 0) {
