@@ -20,6 +20,7 @@ final class Usleep implements Halt
 
     public function __invoke(Period $period): void
     {
+        /** @psalm-suppress ArgumentTypeCoercion todo update types to fix this error */
         \usleep(($this->periodToMilliseconds)($period) * 1000);
     }
 }
