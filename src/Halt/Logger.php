@@ -12,7 +12,7 @@ final class Logger implements Halt
     private Halt $halt;
     private LoggerInterface $logger;
 
-    public function __construct(Halt $halt, LoggerInterface $logger)
+    private function __construct(Halt $halt, LoggerInterface $logger)
     {
         $this->halt = $halt;
         $this->logger = $logger;
@@ -30,5 +30,10 @@ final class Logger implements Halt
             'milliseconds' => $period->milliseconds(),
         ]]);
         ($this->halt)($period);
+    }
+
+    public static function psr(Halt $halt, LoggerInterface $logger): self
+    {
+        return new self($halt, $logger);
     }
 }

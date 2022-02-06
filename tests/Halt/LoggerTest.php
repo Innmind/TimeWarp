@@ -17,7 +17,7 @@ class LoggerTest extends TestCase
     {
         $this->assertInstanceOf(
             Halt::class,
-            new Logger(
+            Logger::psr(
                 $this->createMock(Halt::class),
                 $this->createMock(LoggerInterface::class),
             ),
@@ -27,7 +27,7 @@ class LoggerTest extends TestCase
     public function testHalt()
     {
         $period = $this->createMock(Period::class);
-        $halt = new Logger(
+        $halt = Logger::psr(
             $inner = $this->createMock(Halt::class),
             $logger = $this->createMock(LoggerInterface::class),
         );
