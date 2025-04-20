@@ -6,6 +6,9 @@ namespace Innmind\TimeWarp;
 use Innmind\TimeWarp\Exception\LogicException;
 use Innmind\TimeContinuum\Period;
 
+/**
+ * @internal
+ */
 final class PeriodToMilliseconds
 {
     /**
