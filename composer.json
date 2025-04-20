@@ -16,7 +16,8 @@
     },
     "require": {
         "php": "~8.2",
-        "innmind/time-continuum": "~3.0",
+        "innmind/immutable": "~5.12",
+        "innmind/time-continuum": "~4.1",
         "psr/log": "~3.0"
     },
     "autoload": {
