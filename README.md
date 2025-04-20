@@ -4,9 +4,7 @@
 [![codecov](https://codecov.io/gh/innmind/timewarp/branch/develop/graph/badge.svg)](https://codecov.io/gh/innmind/timewarp)
 [![Type Coverage](https://shepherd.dev/github/innmind/timewarp/coverage.svg)](https://shepherd.dev/github/innmind/timewarp)
 
-Small lib to abstract the way to halt the program.
-
-Currently this library is only usable on Earth, **DO NOT** use it on Mars or anywhere else in the universe.
+Small library to abstract the way to halt the program.
 
 ## Installation
 
