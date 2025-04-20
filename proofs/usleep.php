@@ -6,6 +6,7 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
 };
 use Innmind\TimeContinuum\Period;
+use Innmind\Immutable\SideEffect;
 
 return static function() {
     yield test(
@@ -19,9 +20,11 @@ return static function() {
         'Usleep',
         static fn($assert) => $assert
             ->time(static function() use ($assert) {
-                $assert->null(
-                    (new Usleep)(Period::millisecond(500)),
-                );
+                $assert
+                    ->object(
+                        (new Usleep)(Period::millisecond(500))->unwrap(),
+                    )
+                    ->instance(SideEffect::class);
             })
             ->inMoreThan()
             ->milliseconds(500),

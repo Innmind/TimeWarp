@@ -7,6 +7,7 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
 };
 use Innmind\TimeContinuum\Period;
+use Innmind\Immutable\SideEffect;
 use Psr\Log\NullLogger;
 
 return static function() {
@@ -22,10 +23,12 @@ return static function() {
 
     yield test(
         'Logger',
-        static fn($assert) => $assert->null(
-            Logger::psr(new Usleep, new NullLogger)(
-                Period::millisecond(100),
-            ),
-        ),
+        static fn($assert) => $assert
+            ->object(
+                Logger::psr(new Usleep, new NullLogger)(
+                    Period::millisecond(100),
+                )->unwrap(),
+            )
+            ->instance(SideEffect::class),
     );
 };

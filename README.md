@@ -26,7 +26,7 @@ use Innmind\TimeContinuum\Period;
 function yourApp(Halt $halt): void
 {
     // do something
-    $halt(Period::minute(42));
+    $halt(Period::minute(42))->unwrap();
     // do some more
 }
 
