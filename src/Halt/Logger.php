@@ -5,6 +5,7 @@ namespace Innmind\TimeWarp\Halt;
 
 use Innmind\TimeWarp\Halt;
 use Innmind\TimeContinuum\Period;
+use Innmind\Immutable\Attempt;
 use Psr\Log\LoggerInterface;
 
 final class Logger implements Halt
@@ -18,7 +19,8 @@ final class Logger implements Halt
         $this->logger = $logger;
     }
 
-    public function __invoke(Period $period): void
+    #[\Override]
+    public function __invoke(Period $period): Attempt
     {
         $this->logger->debug('Halting current process...', ['period' => [
             'years' => $period->years(),
@@ -29,7 +31,8 @@ final class Logger implements Halt
             'seconds' => $period->seconds(),
             'milliseconds' => $period->milliseconds(),
         ]]);
-        ($this->halt)($period);
+
+        return ($this->halt)($period);
     }
 
     public static function psr(Halt $halt, LoggerInterface $logger): self

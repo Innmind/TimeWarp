@@ -4,9 +4,7 @@
 [![codecov](https://codecov.io/gh/innmind/timewarp/branch/develop/graph/badge.svg)](https://codecov.io/gh/innmind/timewarp)
 [![Type Coverage](https://shepherd.dev/github/innmind/timewarp/coverage.svg)](https://shepherd.dev/github/innmind/timewarp)
 
-Small lib to abstract the way to halt the program.
-
-Currently this library is only usable on Earth, **DO NOT** use it on Mars or anywhere else in the universe.
+Small library to abstract the way to halt the program.
 
 ## Installation
 
@@ -21,16 +19,16 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
     Halt,
 };
-use Innmind\TimeContinuum\Earth\Period\Minute;
+use Innmind\TimeContinuum\Period;
 
 function yourApp(Halt $halt): void
 {
     // do something
-    $halt(new Minute(42));
+    $halt(Period::minute(42))->unwrap();
     // do some more
 }
 
-yourApp(new Usleep);
+yourApp(Usleep::new());
 ```
 
 This example will halt your program for 42 minutes.
