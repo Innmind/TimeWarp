@@ -21,7 +21,7 @@ return static function() {
         static fn($assert) => $assert
             ->time(static function() use ($assert) {
                 $assert->null(
-                    (new Usleep)(Millisecond::of(500)),
+                    (new Usleep)(new Millisecond(500)),
                 );
             })
             ->inMoreThan()

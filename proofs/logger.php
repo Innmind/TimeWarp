@@ -24,7 +24,7 @@ return static function() {
         'Logger',
         static fn($assert) => $assert->null(
             Logger::psr(new Usleep, new NullLogger)(
-                Millisecond::of(100),
+                new Millisecond(100),
             ),
         ),
     );
