@@ -6,7 +6,6 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
 };
 use Innmind\TimeContinuum\Earth\Period\Millisecond;
-use Psr\Log\NullLogger;
 
 return static function() {
     yield test(
