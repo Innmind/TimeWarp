@@ -18,6 +18,7 @@ final class Logger implements Halt
         $this->logger = $logger;
     }
 
+    #[\Override]
     public function __invoke(Period $period): void
     {
         $this->logger->debug('Halting current process...', ['period' => [

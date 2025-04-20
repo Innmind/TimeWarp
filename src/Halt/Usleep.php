@@ -18,6 +18,7 @@ final class Usleep implements Halt
         $this->periodToMilliseconds = new PeriodToMilliseconds;
     }
 
+    #[\Override]
     public function __invoke(Period $period): void
     {
         /** @psalm-suppress ArgumentTypeCoercion todo update types to fix this error */
