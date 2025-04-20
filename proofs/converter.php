@@ -1,10 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-use Innmind\TimeWarp\{
-    PeriodToMilliseconds,
-    Exception\LogicException,
-};
+use Innmind\TimeWarp\PeriodToMilliseconds;
 use Innmind\TimeContinuum\Period;
 
 return static function() {
