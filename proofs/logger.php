@@ -6,7 +6,7 @@ use Innmind\TimeWarp\{
     Halt\Logger,
     Halt\Usleep,
 };
-use Innmind\TimeContinuum\Earth\Period\Millisecond;
+use Innmind\TimeContinuum\Period;
 use Psr\Log\NullLogger;
 
 return static function() {
@@ -24,7 +24,7 @@ return static function() {
         'Logger',
         static fn($assert) => $assert->null(
             Logger::psr(new Usleep, new NullLogger)(
-                new Millisecond(100),
+                Period::millisecond(100),
             ),
         ),
     );

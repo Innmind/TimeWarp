@@ -21,12 +21,12 @@ use Innmind\TimeWarp\{
     Halt\Usleep,
     Halt,
 };
-use Innmind\TimeContinuum\Earth\Period\Minute;
+use Innmind\TimeContinuum\Period;
 
 function yourApp(Halt $halt): void
 {
     // do something
-    $halt(new Minute(42));
+    $halt(Period::minute(42));
     // do some more
 }
 

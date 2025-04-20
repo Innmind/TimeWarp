@@ -5,7 +5,7 @@ use Innmind\TimeWarp\{
     Halt,
     Halt\Usleep,
 };
-use Innmind\TimeContinuum\Earth\Period\Millisecond;
+use Innmind\TimeContinuum\Period;
 
 return static function() {
     yield test(
@@ -20,7 +20,7 @@ return static function() {
         static fn($assert) => $assert
             ->time(static function() use ($assert) {
                 $assert->null(
-                    (new Usleep)(new Millisecond(500)),
+                    (new Usleep)(Period::millisecond(500)),
                 );
             })
             ->inMoreThan()

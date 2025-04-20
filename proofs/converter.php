@@ -5,17 +5,14 @@ use Innmind\TimeWarp\{
     PeriodToMilliseconds,
     Exception\LogicException,
 };
-use Innmind\TimeContinuum\Earth\Period\{
-    Composite,
-    Month,
-};
+use Innmind\TimeContinuum\Period;
 
 return static function() {
     yield test(
         'Convert period',
         static fn($assert) => $assert->same(
             31_626_061_001,
-            (new PeriodToMilliseconds)(new Composite(
+            (new PeriodToMilliseconds)(Period::of(
                 1,
                 0,
                 1,
@@ -23,6 +20,7 @@ return static function() {
                 1,
                 1,
                 1,
+                0,
             )),
         ),
     );
@@ -30,7 +28,7 @@ return static function() {
     yield test(
         'Prevent converting months',
         static fn($assert) => $assert->throws(
-            static fn() => (new PeriodToMilliseconds)(new Month(1)),
+            static fn() => (new PeriodToMilliseconds)(Period::month(1)),
             LogicException::class,
         ),
     );
