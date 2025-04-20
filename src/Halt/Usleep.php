@@ -17,7 +17,7 @@ final class Usleep implements Halt
 {
     private PeriodToMilliseconds $periodToMilliseconds;
 
-    public function __construct()
+    private function __construct()
     {
         $this->periodToMilliseconds = new PeriodToMilliseconds;
     }
@@ -29,5 +29,10 @@ final class Usleep implements Halt
         \usleep(($this->periodToMilliseconds)($period) * 1000);
 
         return Attempt::result(SideEffect::identity());
+    }
+
+    public static function new(): self
+    {
+        return new self;
     }
 }

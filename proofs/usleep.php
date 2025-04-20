@@ -12,7 +12,7 @@ return static function() {
     yield test(
         'Usleep interface',
         static fn($assert) => $assert
-            ->object(new Usleep)
+            ->object(Usleep::new())
             ->instance(Halt::class),
     );
 
@@ -22,7 +22,7 @@ return static function() {
             ->time(static function() use ($assert) {
                 $assert
                     ->object(
-                        (new Usleep)(Period::millisecond(500))->unwrap(),
+                        Usleep::new()(Period::millisecond(500))->unwrap(),
                     )
                     ->instance(SideEffect::class);
             })

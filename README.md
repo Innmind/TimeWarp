@@ -30,7 +30,7 @@ function yourApp(Halt $halt): void
     // do some more
 }
 
-yourApp(new Usleep);
+yourApp(Usleep::new());
 ```
 
 This example will halt your program for 42 minutes.

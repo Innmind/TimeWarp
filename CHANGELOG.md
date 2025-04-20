@@ -9,3 +9,4 @@
 - Requires `innmind/immutable:~5.12`
 - `Innmind\TimeWarp\Halt` return an `Innmind\Immutable\Attempt<Innmind\Immutable\SideEffect>`
 - `Innmind\TimeWarp\PeriodToMilliseconds` is now internal
+- `Innmind\TimeWarp\Halt\Usleep` constructor is now private, use `::new()` named constructor

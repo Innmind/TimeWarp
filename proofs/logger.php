@@ -15,7 +15,7 @@ return static function() {
         'Logger interface',
         static fn($assert) => $assert
             ->object(Logger::psr(
-                new Usleep,
+                Usleep::new(),
                 new NullLogger,
             ))
             ->instance(Halt::class),
@@ -25,7 +25,7 @@ return static function() {
         'Logger',
         static fn($assert) => $assert
             ->object(
-                Logger::psr(new Usleep, new NullLogger)(
+                Logger::psr(Usleep::new(), new NullLogger)(
                     Period::millisecond(100),
                 )->unwrap(),
             )
