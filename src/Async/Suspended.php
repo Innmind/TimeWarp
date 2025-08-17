@@ -24,6 +24,8 @@ final class Suspended
     private function __construct(
         private PointInTime $at,
         private Period $period,
+        private PointInTime $lastChecked,
+        private Period $remaining,
     ) {
     }
 
@@ -34,7 +36,7 @@ final class Suspended
         PointInTime $at,
         Period $period,
     ): self {
-        return new self($at, $period);
+        return new self($at, $period, $at, $period);
     }
 
     /**
@@ -58,16 +60,30 @@ final class Suspended
             return Resumable::of($result);
         }
 
-        $resumable = $clock
-            ->now()
-            ->elapsedSince($this->at)
-            ->longerThan($this->period->asElapsedPeriod());
+        $now = $clock->now();
+        $elapsed = $now->elapsedSince($this->at);
+        $resumable = $elapsed->longerThan(
+            $this->period->asElapsedPeriod(),
+        );
 
         if ($resumable) {
             return Resumable::of($result);
         }
 
-        return $this;
+        $expectedEnd = $this->at->goForward($this->period);
+
+        if ($this->lastChecked->aheadOf($expectedEnd)) {
+            return Resumable::of($result);
+        }
+
+        return new self(
+            $this->at,
+            $this->period,
+            $now,
+            $expectedEnd
+                ->elapsedSince($this->lastChecked)
+                ->asPeriod(),
+        );
     }
 
     /**
@@ -75,6 +91,6 @@ final class Suspended
      */
     public function period(): Period
     {
-        return $this->period;
+        return $this->remaining;
     }
 }
