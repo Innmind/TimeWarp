@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0 - 2025-08-17
+
+### Added
+
+- `Innmind\TimeWarp\Halt\Async` (This is an internal feature for `innmind/async` that may introduce BC breaks in next minor versions)
+
 ## 4.0.0 - 2025-04-20
 
 ### Changed
