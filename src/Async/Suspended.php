@@ -69,4 +69,12 @@ final class Suspended
 
         return $this;
     }
+
+    /**
+     * @psalm-mutation-free
+     */
+    public function period(): Period
+    {
+        return $this->period;
+    }
 }
