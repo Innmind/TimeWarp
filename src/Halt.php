@@ -8,6 +8,7 @@ use Innmind\TimeWarp\Halt\{
     Usleep,
     Logger,
     Async,
+    Via,
 };
 use Innmind\TimeContinuum\{
     Clock,
@@ -52,5 +53,15 @@ final class Halt
     public static function async(Clock $clock): self
     {
         return new self(Async::of($clock));
+    }
+
+    /**
+     * @internal
+     *
+     * @param callable(Period): Attempt<SideEffect> $via
+     */
+    public static function via(callable $via): self
+    {
+        return new self(Via::of($via));
     }
 }
