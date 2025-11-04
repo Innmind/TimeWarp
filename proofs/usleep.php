@@ -7,14 +7,7 @@ use Innmind\Immutable\SideEffect;
 
 return static function() {
     yield test(
-        'Usleep interface',
-        static fn($assert) => $assert
-            ->object(Halt::new())
-            ->instance(Halt::class),
-    );
-
-    yield test(
-        'Usleep',
+        'Halt::new()',
         static fn($assert) => $assert
             ->time(static function() use ($assert) {
                 $assert

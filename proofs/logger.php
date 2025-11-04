@@ -8,17 +8,7 @@ use Psr\Log\NullLogger;
 
 return static function() {
     yield test(
-        'Logger interface',
-        static fn($assert) => $assert
-            ->object(Halt::logger(
-                Halt::new(),
-                new NullLogger,
-            ))
-            ->instance(Halt::class),
-    );
-
-    yield test(
-        'Logger',
+        'Halt::logger()',
         static fn($assert) => $assert
             ->object(
                 Halt::logger(Halt::new(), new NullLogger)(
