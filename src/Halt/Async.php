@@ -4,7 +4,6 @@ declare(strict_types = 1);
 namespace Innmind\TimeWarp\Halt;
 
 use Innmind\TimeWarp\{
-    Halt,
     Async\Suspended,
     Async\Resumable,
 };
@@ -17,7 +16,7 @@ use Innmind\Immutable\Attempt;
 /**
  * @internal
  */
-final class Async implements Halt
+final class Async implements Implementation
 {
     private function __construct(
         private Clock $clock,
