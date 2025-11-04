@@ -15,7 +15,7 @@
         "issues": "http://github.com/Innmind/TimeWarp/issues"
     },
     "require": {
-        "php": "~8.2",
+        "php": "~8.4",
         "innmind/immutable": "~5.12",
         "innmind/time-continuum": "~4.1",
         "psr/log": "~3.0"
