@@ -7,6 +7,9 @@ use Innmind\TimeContinuum\Period;
 use Innmind\Immutable\Attempt;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @internal
+ */
 final class Logger implements Implementation
 {
     private Implementation $halt;

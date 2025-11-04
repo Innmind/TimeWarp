@@ -10,6 +10,9 @@ use Innmind\Immutable\{
     SideEffect,
 };
 
+/**
+ * @internal
+ */
 final class Usleep implements Implementation
 {
     private PeriodToMilliseconds $periodToMilliseconds;
