@@ -3,9 +3,9 @@ declare(strict_types = 1);
 
 namespace Innmind\TimeWarp\Halt;
 
-use Innmind\TimeWarp\{
-    Async\Suspended,
-    Async\Resumable,
+use Innmind\TimeWarp\Async\{
+    Suspended,
+    Resumable,
 };
 use Innmind\TimeContinuum\{
     Clock,
