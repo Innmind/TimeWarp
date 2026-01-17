@@ -23,7 +23,7 @@ return static function() {
     yield test(
         'Prevent converting months',
         static fn($assert) => $assert->throws(
-            static fn() => Halt::new()(Period::month(1)),
+            static fn() => Halt::new()(Period::month(1))->unwrap(),
             LogicException::class,
         ),
     );

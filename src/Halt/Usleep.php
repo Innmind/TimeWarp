@@ -17,6 +17,11 @@ final class Usleep implements Implementation
     #[\Override]
     public function __invoke(Period $period): Attempt
     {
+        if ($period->months() !== 0) {
+            // a month is not constant
+            return Attempt::error(new \LogicException('Months can not be converted to milliseconds'));
+        }
+
         /** @psalm-suppress ArgumentTypeCoercion todo update types to fix this error */
         \usleep($this->convert($period) * 1000);
 
@@ -31,11 +36,6 @@ final class Usleep implements Implementation
 
     private function convert(Period $period): int
     {
-        if ($period->months() !== 0) {
-            // a month is not constant
-            throw new \LogicException('Months can not be converted to milliseconds');
-        }
-
         $second = 1000;
         $minute = 60 * $second;
         $hour = 60 * $minute;
