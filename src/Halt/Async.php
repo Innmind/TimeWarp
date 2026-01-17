@@ -35,6 +35,7 @@ final class Async implements Implementation
         return $return->unwrap();
     }
 
+    #[\NoDiscard]
     public static function of(Clock $clock): self
     {
         return new self($clock);

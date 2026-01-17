@@ -31,6 +31,7 @@ final class Via implements Implementation
     /**
      * @param callable(Period): Attempt<SideEffect> $via
      */
+    #[\NoDiscard]
     public static function of(callable $via): self
     {
         return new self(\Closure::fromCallable($via));

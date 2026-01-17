@@ -37,6 +37,7 @@ final class Logger implements Implementation
         return ($this->halt)($period);
     }
 
+    #[\NoDiscard]
     public static function psr(Implementation $halt, LoggerInterface $logger): self
     {
         return new self($halt, $logger);
