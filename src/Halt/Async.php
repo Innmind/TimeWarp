@@ -3,10 +3,9 @@ declare(strict_types = 1);
 
 namespace Innmind\TimeWarp\Halt;
 
-use Innmind\TimeWarp\{
-    Halt,
-    Async\Suspended,
-    Async\Resumable,
+use Innmind\TimeWarp\Async\{
+    Suspended,
+    Resumable,
 };
 use Innmind\TimeContinuum\{
     Clock,
@@ -17,7 +16,7 @@ use Innmind\Immutable\Attempt;
 /**
  * @internal
  */
-final class Async implements Halt
+final class Async implements Implementation
 {
     private function __construct(
         private Clock $clock,
@@ -36,6 +35,7 @@ final class Async implements Halt
         return $return->unwrap();
     }
 
+    #[\NoDiscard]
     public static function of(Clock $clock): self
     {
         return new self($clock);
