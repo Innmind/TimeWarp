@@ -19,4 +19,12 @@ return static function() {
             ->inMoreThan()
             ->milliseconds(500),
     );
+
+    yield test(
+        'Prevent converting months',
+        static fn($assert) => $assert->throws(
+            static fn() => Halt::new()(Period::month(1))->unwrap(),
+            LogicException::class,
+        ),
+    );
 };

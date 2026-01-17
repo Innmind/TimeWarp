@@ -6,6 +6,7 @@
 
 - `Innmind\TimeWarp\Halt` is now a final class
 - Requires PHP `8.4`
+- Using months as a period will now return an exception instead of throwing it
 
 ## 4.1.1 - 2025-08-18
 
