@@ -32,16 +32,19 @@ final class Halt
      *
      * @return Attempt<SideEffect>
      */
+    #[\NoDiscard]
     public function __invoke(Period $period): Attempt
     {
         return ($this->implementation)($period);
     }
 
+    #[\NoDiscard]
     public static function new(): self
     {
         return new self(Usleep::new());
     }
 
+    #[\NoDiscard]
     public static function logger(self $self, LoggerInterface $logger): self
     {
         return new self(Logger::psr($self->implementation, $logger));
@@ -50,6 +53,7 @@ final class Halt
     /**
      * @internal
      */
+    #[\NoDiscard]
     public static function async(Clock $clock): self
     {
         return new self(Async::of($clock));
@@ -60,6 +64,7 @@ final class Halt
      *
      * @param callable(Period): Attempt<SideEffect> $via
      */
+    #[\NoDiscard]
     public static function via(callable $via): self
     {
         return new self(Via::of($via));

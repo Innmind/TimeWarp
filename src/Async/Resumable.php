@@ -27,6 +27,7 @@ final class Resumable
      *
      * @param Attempt<SideEffect> $result
      */
+    #[\NoDiscard]
     public static function of(Attempt $result): self
     {
         return new self($result);
@@ -35,6 +36,7 @@ final class Resumable
     /**
      * @return Attempt<SideEffect>
      */
+    #[\NoDiscard]
     public function unwrap(): Attempt
     {
         return $this->result;

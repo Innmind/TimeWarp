@@ -13,6 +13,7 @@ final class PeriodToMilliseconds
     /**
      * @throws \LogicException If any number of months is specified
      */
+    #[\NoDiscard]
     public function __invoke(Period $period): int
     {
         if ($period->months() !== 0) {

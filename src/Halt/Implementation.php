@@ -19,5 +19,6 @@ interface Implementation
      *
      * @return Attempt<SideEffect>
      */
+    #[\NoDiscard]
     public function __invoke(Period $period): Attempt;
 }

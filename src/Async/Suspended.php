@@ -31,6 +31,7 @@ final class Suspended
     /**
      * @psalm-pure
      */
+    #[\NoDiscard]
     public static function of(
         PointInTime $at,
         Period $period,
@@ -41,6 +42,7 @@ final class Suspended
     /**
      * @param Attempt<SideEffect> $result
      */
+    #[\NoDiscard]
     public function next(
         Clock $clock,
         Attempt $result,
@@ -78,6 +80,7 @@ final class Suspended
     /**
      * @psalm-mutation-free
      */
+    #[\NoDiscard]
     public function period(): Period
     {
         return $this->remaining;

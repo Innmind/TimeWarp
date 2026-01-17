@@ -31,6 +31,7 @@ final class Usleep implements Implementation
         return Attempt::result(SideEffect::identity());
     }
 
+    #[\NoDiscard]
     public static function new(): self
     {
         return new self;
