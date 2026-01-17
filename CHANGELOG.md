@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+
+- `Innmind\TimeWarp\Halt` is now a final class
+- Requires PHP `8.4`
+
 ## 4.1.1 - 2025-08-18
 
 ### Fixed

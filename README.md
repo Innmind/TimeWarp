@@ -15,10 +15,7 @@ composer require innmind/time-warp
 ## Usage
 
 ```php
-use Innmind\TimeWarp\{
-    Halt\Usleep,
-    Halt,
-};
+use Innmind\TimeWarp\Halt;
 use Innmind\TimeContinuum\Period;
 
 function yourApp(Halt $halt): void
@@ -28,7 +25,7 @@ function yourApp(Halt $halt): void
     // do some more
 }
 
-yourApp(Usleep::new());
+yourApp(Halt::new());
 ```
 
 This example will halt your program for 42 minutes.
@@ -36,8 +33,8 @@ This example will halt your program for 42 minutes.
 ## Logging
 
 ```php
-use Innmind\TimeWarp\Halt\Logger;
+use Innmind\TimeWarp\Halt;
 use Psr\Log\LoggerInterface;
 
-$halt = Logger::psr($halt, /** an instance of LoggerInterface */);
+$halt = Halt::logger($halt, /** an instance of LoggerInterface */);
 ```

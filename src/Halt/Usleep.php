@@ -3,17 +3,17 @@ declare(strict_types = 1);
 
 namespace Innmind\TimeWarp\Halt;
 
-use Innmind\TimeWarp\{
-    Halt,
-    PeriodToMilliseconds,
-};
+use Innmind\TimeWarp\PeriodToMilliseconds;
 use Innmind\TimeContinuum\Period;
 use Innmind\Immutable\{
     Attempt,
     SideEffect,
 };
 
-final class Usleep implements Halt
+/**
+ * @internal
+ */
+final class Usleep implements Implementation
 {
     private PeriodToMilliseconds $periodToMilliseconds;
 

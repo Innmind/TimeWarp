@@ -1,31 +1,17 @@
 <?php
 declare(strict_types = 1);
 
-use Innmind\TimeWarp\{
-    Halt,
-    Halt\Logger,
-    Halt\Usleep,
-};
+use Innmind\TimeWarp\Halt;
 use Innmind\TimeContinuum\Period;
 use Innmind\Immutable\SideEffect;
 use Psr\Log\NullLogger;
 
 return static function() {
     yield test(
-        'Logger interface',
-        static fn($assert) => $assert
-            ->object(Logger::psr(
-                Usleep::new(),
-                new NullLogger,
-            ))
-            ->instance(Halt::class),
-    );
-
-    yield test(
-        'Logger',
+        'Halt::logger()',
         static fn($assert) => $assert
             ->object(
-                Logger::psr(Usleep::new(), new NullLogger)(
+                Halt::logger(Halt::new(), new NullLogger)(
                     Period::millisecond(100),
                 )->unwrap(),
             )

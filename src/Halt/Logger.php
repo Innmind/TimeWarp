@@ -3,17 +3,19 @@ declare(strict_types = 1);
 
 namespace Innmind\TimeWarp\Halt;
 
-use Innmind\TimeWarp\Halt;
 use Innmind\TimeContinuum\Period;
 use Innmind\Immutable\Attempt;
 use Psr\Log\LoggerInterface;
 
-final class Logger implements Halt
+/**
+ * @internal
+ */
+final class Logger implements Implementation
 {
-    private Halt $halt;
+    private Implementation $halt;
     private LoggerInterface $logger;
 
-    private function __construct(Halt $halt, LoggerInterface $logger)
+    private function __construct(Implementation $halt, LoggerInterface $logger)
     {
         $this->halt = $halt;
         $this->logger = $logger;
@@ -35,7 +37,7 @@ final class Logger implements Halt
         return ($this->halt)($period);
     }
 
-    public static function psr(Halt $halt, LoggerInterface $logger): self
+    public static function psr(Implementation $halt, LoggerInterface $logger): self
     {
         return new self($halt, $logger);
     }
